@@ -1,0 +1,4 @@
+<%= attachment_image_tag @tweet, :image %>
+  <p>本文：<%= @tweet.body %></p>
+  <p>ユーザーネーム：<%= @tweet.user.name %></p>
+  <p>投稿日時：<%= @tweet.created_at.strftime('%Y年%m月%d日') %></p>
