@@ -1,0 +1,7 @@
+<% @tweets.each do |tweet| %>
+<div>
+  <%= attachment_image_tag tweet, :image %>
+  <p>本文：<%= tweet.body %></p>
+  <p>ユーザーネーム：<%= tweet.user.name %></p>
+</div>
+<% end %>
