@@ -9,11 +9,12 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @tweet_comment = TweetComment.new
   end
 
   def create
     @tweet = Tweet.new(tweet_params)
-    @tweet.user.id = current.user.id
+    @tweet.user_id = current_user.id
     @tweet.save
     redirect_to tweets_path
   end
