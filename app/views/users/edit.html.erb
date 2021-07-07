@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>ユーザー編集</h2>
-      <%= attachment_image_tag user, :profile_image, size: "200x200", format:'jpeg', fallback: "no_image.jpg", class:"effect" %>
+      <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "no-image-icon.jpg", class:"effect" %>
       <%= form_with model:@user, local:true do |f| %>
         <div class="form-group">
           <%= f.label :name %>

@@ -1,15 +1,15 @@
 class TweetCommentsController < ApplicationController
   def create
     @tweet = Tweet.find(params[:tweet_id])
-    @comment = current_user.tweet_comments.new(tweet_comment_params)
-    @comment.tweet_id = @tweet.id
-    @comment.save
-    redirect_back(fallback_location: root_path)
+    @tweet_comment = current_user.tweet_comments.new(tweet_comment_params)
+    @tweet_comment.tweet_id = @tweet.id
+    @tweet_comment.save
   end
 
   def destroy
+    @tweet = Tweet.find(params[:tweet_id])
+    @tweet_comment_id = params[:id]
     TweetComment.find_by(id: params[:id], tweet_id: params[:tweet_id]).destroy
-    redirect_back(fallback_location: root_path)
   end
 
   private
